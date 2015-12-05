@@ -32,6 +32,14 @@
 
         </LinearLayout>
 
+        <fragment
+            android:name="com.google.android.youtube.player.YouTubePlayerFragment"
+            android:id="@+id/youtubeplayerfragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
-</LinearLayout>
+
+
+
+    </LinearLayout>
     </LinearLayout>

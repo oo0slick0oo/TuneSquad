@@ -33,5 +33,7 @@ dependencies {
     compile 'com.mcxiaoke.volley:library:1.0.19+'
     compile 'com.google.code.gson:gson:2.3.1'
     compile(name:'myhumm-android-sdk', ext:'aar')
+    compile(name:'youtube', ext:'jar')
     compile 'com.facebook.android:facebook-android-sdk:4.6.0'
+    compile 'com.google.android.gms:play-services-appindexing:8.1.0'
 }
