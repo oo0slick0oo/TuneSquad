@@ -38,7 +38,7 @@ public class MyGroups extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent mainIntent = new Intent(MyGroups.this, CreateGroup.class);
+                Intent mainIntent = new Intent(MyGroups.this, CreateSquad.class);
                 MyGroups.this.startActivity(mainIntent);
 
             }

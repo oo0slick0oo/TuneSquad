@@ -23,6 +23,12 @@
         </activity>
 
         <activity android:name=".Login"/>
+        <activity android:name=".CreateHomeScreen"/>
+        <activity android:name=".MyGroups"/>
+        <activity android:name=".CreateSquad"/>
+        <activity android:name=".PlayMusic"/>
+        <activity android:name=".FindSquad"/>
+
 
     </application>
 
