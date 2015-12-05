@@ -23,6 +23,7 @@ repositories {
     flatDir {
         dirs 'libs'
     }
+    mavenCentral()
 }
 
 dependencies {
@@ -32,4 +33,5 @@ dependencies {
     compile 'com.mcxiaoke.volley:library:1.0.19+'
     compile 'com.google.code.gson:gson:2.3.1'
     compile(name:'myhumm-android-sdk', ext:'aar')
+    compile 'com.facebook.android:facebook-android-sdk:4.6.0'
 }

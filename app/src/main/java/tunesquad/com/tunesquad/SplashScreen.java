@@ -1,5 +1,6 @@
 package tunesquad.com.tunesquad;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,34 +22,8 @@ public class SplashScreen extends AppCompatActivity {
         setContentView(R.layout.activity_splash_screen);
         // This is the main method.. start here ^^ leave the above
 
-        humm = HummAPI.getInstance();
-
-        if (humm != null){
-            // HUMM api has been initilized
-        } else {
-            Toast toast = Toast.makeText(this, "error", Toast.LENGTH_LONG);
-            toast.show();
-        }
-
-        humm.login(userName, password, new OnActionFinishedListener() {
-            @Override
-            public void actionFinished(Object o) {
-                Toast toast = Toast.makeText(SplashScreen.this, "Login Complete", Toast.LENGTH_LONG);
-                toast.show();
-            }
-
-            @Override
-            public void onError(Exception e) {
-                Toast toast = Toast.makeText(SplashScreen.this, "Login Failed", Toast.LENGTH_LONG);
-                toast.show();
-            }
-        });
-
+        Intent intent = new Intent(this, FacebookNetwork.class);
+        startActivity(intent);
 
     }
-
-
-
-
-
 }
