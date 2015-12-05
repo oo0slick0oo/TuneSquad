@@ -1,54 +1,51 @@
 package tunesquad.com.tunesquad;
 
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
 
 import humm.android.api.HummAPI;
-import humm.android.api.OnActionFinishedListener;
+import humm.android.api.Model.Humm;
 
 public class SplashScreen extends AppCompatActivity {
 
     // Scope...
-    private HummAPI humm;
-    private static final String userName = "oo0slick0oo";
-    private static final String password = "Liberty2";
+    private static final String USERNAME = "oo0slick0oo";
+    private static final String PASSWORD = "Liberty2";
+    private static final String LOG_TAG = "SplashScreen";
+    private static final long SPLASH_DISPLAY_LENGTH = 2000; // Currently 2 seconds
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+        init();
         // This is the main method.. start here ^^ leave the above
 
-        humm = HummAPI.getInstance();
+        final HummAPI humm = HummAPI.getInstance();
 
-        if (humm != null){
-            // HUMM api has been initilized
-        } else {
-            Toast toast = Toast.makeText(this, "error", Toast.LENGTH_LONG);
-            toast.show();
-        }
-
-        humm.login(userName, password, new OnActionFinishedListener() {
-            @Override
-            public void actionFinished(Object o) {
-                Toast toast = Toast.makeText(SplashScreen.this, "Login Complete", Toast.LENGTH_LONG);
-                toast.show();
-            }
-
-            @Override
-            public void onError(Exception e) {
-                Toast toast = Toast.makeText(SplashScreen.this, "Login Failed", Toast.LENGTH_LONG);
-                toast.show();
-            }
-        });
-
+        humm.
 
     }
 
+    public void init() {
 
+        // Hides Actionbar
+        getSupportActionBar().hide();
 
+/*
+        new Handler().postDelayed(new Runnable(){
+            @Override
+            public void run() {
+                Intent mainIntent = new Intent(SplashScreen.this, FacebookNetwork.class);
+                SplashScreen.this.startActivity(mainIntent);
+                SplashScreen.this.finish();
 
+            }
+        }, SPLASH_DISPLAY_LENGTH);
+*/
+
+    }
 
 }
