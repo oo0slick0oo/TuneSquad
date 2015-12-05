@@ -26,8 +26,6 @@ public class SplashScreen extends AppCompatActivity {
 
     }
 
-
-
     public void init() {
 
         new Handler().postDelayed(new Runnable(){
