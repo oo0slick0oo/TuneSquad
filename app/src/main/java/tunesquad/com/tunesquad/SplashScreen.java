@@ -14,7 +14,7 @@ import humm.android.api.OnActionFinishedListener;
 public class SplashScreen extends AppCompatActivity {
 
     // Scope...
-    private static final String LOG_TAG = "SplashScreen";
+    public static final String LOG_TAG = "SplashScreen";
     private static final long SPLASH_DISPLAY_LENGTH = 6000; // Currently 2 seconds
 
 
