@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:padding="http://schemas.android.com/apk/res-auto"
     android:layout_gravity="center"
     android:background="@color/white"
     android:orientation="vertical">
@@ -30,16 +31,46 @@
                 android:layout_height="wrap_content"
                 android:text="Music Player"/>
 
+
+
         </LinearLayout>
 
-        <fragment
-            android:name="com.google.android.youtube.player.YouTubePlayerFragment"
-            android:id="@+id/youtubeplayerfragment"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:padding="20dp">
 
 
 
+            <fragment
+                android:name="com.google.android.youtube.player.YouTubePlayerFragment"
+                android:id="@+id/youtubeplayerfragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+
+        </LinearLayout>
 
     </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/songsearch"
+        android:layout_margin="10dp"
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:layout_height="40dp"
+        android:background="@color/colorPrimaryDark"
+        android:hint="Search"/>
+
+    <Button
+        android:id="@+id/searchidbutton"
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:background="@color/colorPrimaryDark"
+        android:layout_height="40dp"
+        android:text="SEARCH"/>
+
+
     </LinearLayout>

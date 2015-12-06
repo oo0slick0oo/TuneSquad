@@ -10,6 +10,7 @@ import android.widget.EditText;
 /**
  * Created by gregdikopf on 12/5/15.
  */
+
 public class CreateSquad extends AppCompatActivity {
     Button createButton;
     EditText createInput;

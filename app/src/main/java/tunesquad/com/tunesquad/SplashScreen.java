@@ -15,7 +15,7 @@ public class SplashScreen extends AppCompatActivity {
 
     // Scope...
     public static final String LOG_TAG = "SplashScreen";
-    private static final long SPLASH_DISPLAY_LENGTH = 6000; // Currently 2 seconds
+    private static final long SPLASH_DISPLAY_LENGTH = 1000; // Currently 2 seconds
 
 
     @Override

@@ -7,8 +7,21 @@ package tunesquad.com.tunesquad;
         import com.google.android.youtube.player.YouTubePlayerFragment;
         import com.google.android.youtube.player.YouTubePlayer.PlayerStateChangeListener;
         import com.google.android.youtube.player.YouTubePlayer.Provider;
+
+        import android.content.Intent;
         import android.os.Bundle;
+        import android.util.Log;
+        import android.view.View;
+        import android.widget.Button;
+        import android.widget.EditText;
         import android.widget.Toast;
+
+        import java.util.ArrayList;
+        import java.util.List;
+
+        import humm.android.api.HummAPI;
+        import humm.android.api.Model.Song;
+        import humm.android.api.OnActionFinishedListener;
 
 public class PlayMusic extends YouTubeBaseActivity implements
         YouTubePlayer.OnInitializedListener{
@@ -16,8 +29,13 @@ public class PlayMusic extends YouTubeBaseActivity implements
     private static final String API_KEY = "AIzaSyDe-hPpzjgQRIBcTPxPATNR8D5Pj5Is1rU";
     public static final String VIDEO_ID = "o7VVHhK9zf0";
 
+    private Button searchButton;
+    private EditText searchText;
     private YouTubePlayer youTubePlayer;
     private YouTubePlayerFragment youTubePlayerFragment;
+    private String search_string;
+
+    final HummAPI humm = HummAPI.getInstance();
 
     private static final int RQS_ErrorDialog = 1;
 
@@ -31,6 +49,10 @@ public class PlayMusic extends YouTubeBaseActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.play_music);
 
+        searchButton = (Button)findViewById(R.id.searchidbutton);
+        searchText = (EditText)findViewById(R.id.songsearch);
+
+
         youTubePlayerFragment = (YouTubePlayerFragment)getFragmentManager()
                 .findFragmentById(R.id.youtubeplayerfragment);
         youTubePlayerFragment.initialize(API_KEY, this);
@@ -38,6 +60,41 @@ public class PlayMusic extends YouTubeBaseActivity implements
 
         myPlayerStateChangeListener = new MyPlayerStateChangeListener();
         myPlaybackEventListener = new MyPlaybackEventListener();
+
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                search_string =  searchText.getText().toString();
+
+                humm.getSongs().search(search_string, 20, 0, null, new OnActionFinishedListener() {
+                    @Override
+                    public void actionFinished(Object o) {
+
+
+                        ArrayList<Song> songList = (ArrayList) o;
+
+
+                        Log.d("finsihed", "");
+
+
+                        Intent intent = new Intent(PlayMusic.this, SearchResults.class);
+
+                        intent.putParcelableArrayListExtra("list", songList);
+                        PlayMusic.this.startActivity(intent);
+
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+
+                        Log.d("Error","" + e.toString());
+
+                    }
+                });
+
+
+            }
+        });
 
     }
 

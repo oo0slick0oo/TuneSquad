@@ -37,7 +37,6 @@ public class MyGroups extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_groups);
 
-
         //vm.sendDataToEndpoint(MyGroups.this, stringBuilder("tunesqaudfinal-env.elasticbeanstalk.com/public/index.php?apikey=spacejam"));
 
         createNewSquad = (Button) findViewById(R.id.create_new_sqaud);

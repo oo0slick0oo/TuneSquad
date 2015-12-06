@@ -40,6 +40,7 @@ public class Login extends AppCompatActivity {
                 humm.login(username.getText().toString(), password.getText().toString(), new OnActionFinishedListener() {
                     @Override
                     public void actionFinished(Object o) {
+
                         Intent intent = new Intent(Login.this, MyGroups.class);
                         Login.this.startActivity(intent);
                         Login.this.finish();
